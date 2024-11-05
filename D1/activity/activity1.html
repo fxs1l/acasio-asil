@@ -1,0 +1,133 @@
+<!-- Creating a Contact Form and Semantic Structure and Table -->
+<html>
+    <head>
+        <title>Activity 1</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to Cafe Delights</h1>
+            <p>Your cozy corner for the best coffee and treats in town.</p>
+        </header>
+        <main>
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Please fill out the form below:</p>
+        </main>
+        <form action="" method="post">
+            <table border="1">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <th id="personal-info">Personal Information</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="name"> Name: </label>
+                            <input type="text" id="name" name="name" /> <br />
+                            <label for="email"> Email: </label>
+                            <input type="email" id="email" name="email" /><br />
+                            <label for="phone"> Phone Number: </label>
+                            <input
+                                type="number"
+                                id="number"
+                                name="phone"
+                                placeholder="123-456-7890"
+                            />
+                            <br />
+                            <label for="bdate"> Date of Birth: </label>
+                            <input type="date" id="bdate" name="bdate" /> <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th id="visit-info">Visit Information</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="vdate"> Preferred Visit Date: </label>
+                            <input type="date" id="vdate" name="vdate" /> <br />
+                            <label for="time"> Preferred Time: </label>
+                            <input type="time" id="time" name="time" /> <br />
+                            <br />
+                            <label for="return">
+                                Are you a returning consumer?
+                            </label>
+                            <br />
+                            <label for="yes">Yes</label>
+                            <input
+                                type="radio"
+                                id="yes"
+                                name="return"
+                                value="yes"
+                            />
+                            <br />
+                            <label for="no">No</label>
+                            <input type="radio" id="no" name="return" /> <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th id="order-pref">Order Preferences</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="drink"> Favorite Drink: </label>
+                            <select name="drink" id="drink">
+                                <option value="latte">Latte</option>
+                            </select>
+                            <br /><br />
+                            <label for="diet">
+                                Select your dietary preferences:</label
+                            >
+                            <br />
+                            <label for="vegan">Vegan</label>
+                            <input
+                                type="checkbox"
+                                id="vegan"
+                                name="diet"
+                                value="vegan"
+                            />
+                            <br />
+                            <label for="vegetarian">Vegetarian</label>
+                            <input
+                                type="checkbox"
+                                id="vegetarian"
+                                name="diet"
+                            />
+                            <br />
+                            <label for="gluten">Gluten-Free</label>
+                            <input type="checkbox" id="gluten" name="diet" />
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th id="feedback">Feedback</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="rate">
+                                Rate your last visit (1-5)
+                            </label>
+                            <input type="range" min="1" max="5" name="rate" />
+                            <br />
+                            <label for="comments"> Additional Comments: </label>
+                            <br />
+                            <textarea
+                                type="textarea"
+                                placeholder="Tell us about your experience..."
+                                name="comments"
+                                rows="4"
+                                cols="50"
+                            ></textarea>
+                            <br />
+                            <br />
+                            <label for="news">
+                                Would you like to receive our newsletter?
+                            </label>
+                            <input type="checkbox" id="news" name="news" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
