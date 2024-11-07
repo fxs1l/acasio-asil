@@ -1,12 +1,15 @@
 <html>
     <head>
+        <title>Day 3 Activity</title>
         <link rel="stylesheet" href="style.css" />
+        <script
+            src="https://kit.fontawesome.com/22aefdbb6e.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
         <nav>
-            <div class="logo-container">
-                <img class="logo" alt="logo" src="image/logo.png" />
-            </div>
+            <img class="logo" alt="logo" src="image/logo.png" />
 
             <ul class="nav-links">
                 <li><a href="#home">Home </a></li>
@@ -17,13 +20,17 @@
                 <li><a href="#order">Order </a></li>
             </ul>
             <div class="nav-icons">
-                <!-- Temp -->
-                insert icons here
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </nav>
         <main>
             <section id="home">
-                <h1>Get Fresh <span>Food</span> in a Easy Way</h1>
+                <h1>
+                    Get Fresh <span>Food</span> <br />
+                    in an Easy Way
+                </h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                     ac lectus quis mauris fermentum ultrices. Sed ex ante,
@@ -39,59 +46,477 @@
                     velit blandit tempor. Aenean mattis sit amet lorem nec
                     cursus. Vivamus quis hendrerit nunc. Morbi sed orci felis.
                 </p>
-                <button>Order Now</button>
-                <!-- <img src="image/main_img.png" alt="burger" /> -->
+                <button class="btn">Order Now ></button>
+                <img id="home-bg" src="image/main_img.png" alt="burger" />
             </section>
             <section id="about">
-                <h1><span>About</span> Us</h1>
-                <h3>Why Choose Us</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    ac lectus quis mauris fermentum ultrices. Sed ex ante,
-                    commodo ullamcorper viverra a, ultricies quis tellus.
-                    Pellentesque habitant morbi tristique senectus et netus et
-                    malesuada fames ac turpis egestas. Aenean nulla risus,
-                    luctus efficitur felis et, porttitor vestibulum mauris. In
-                    sagittis nisl at ligula semper molestie. Fusce luctus, dolor
-                    nec blandit bibendum, dolor mi pharetra erat, a pharetra
-                    orci ligula vel justo. Nam dapibus ante sit amet pharetra
-                    varius. Morbi neque elit, tincidunt et convallis sed,
-                    posuere sed eros. Integer tincidunt dui leo, nec bibendum
-                    velit blandit tempor. Aenean mattis sit amet lorem nec
-                    cursus. Vivamus quis hendrerit nunc. Morbi sed orci felis.
-                </p>
-                <button>Order Now</button>
-                <!-- <img src="image/Food-Plate.png" alt="burger" /> -->
+                <img id="about-bg" src="image/Food-Plate.png" alt="burger" />
+                <div class="about-cnt">
+                    <h1><span>About</span> Us</h1>
+                    <h3>Why Choose us?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Ut ac lectus quis mauris fermentum ultrices. Sed ex
+                        ante, commodo ullamcorper viverra a, ultricies quis
+                        tellus. Pellentesque habitant morbi tristique senectus
+                        et netus et malesuada fames ac turpis egestas. Aenean
+                        nulla risus, luctus efficitur felis et, porttitor
+                        vestibulum mauris. In sagittis nisl at ligula semper
+                        molestie. Fusce luctus, dolor nec blandit bibendum,
+                        dolor mi pharetra erat, a pharetra orci ligula vel
+                        justo. Nam dapibus ante sit amet pharetra varius. Morbi
+                        neque elit, tincidunt et convallis sed, posuere sed
+                        eros. Integer tincidunt dui leo, nec bibendum velit
+                        blandit tempor. Aenean mattis sit amet lorem nec cursus.
+                        Vivamus quis hendrerit nunc. Morbi sed orci felis.
+                    </p>
+                    <button class="btn">Order Now ></button>
+                </div>
             </section>
             <section id="menu">
                 <h1>Our <span>Menu</span></h1>
+                <div class="food-items-grid">
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/buger.jpg" alt="food-item" />
+                        </div>
+
+                        <h4>Burger</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/pasta.jpg" alt="food-item" />
+                        </div>
+
+                        <h4>Pasta</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/lasagna.webp" alt="food-item" />
+                        </div>
+
+                        <h4>Lasagna</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img
+                                src="image/chocolate_Drink.jpg"
+                                alt="food-item"
+                            />
+                        </div>
+
+                        <h4>Drink</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/pizza.jpg" alt="food-item" />
+                        </div>
+
+                        <h4>Pizza</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/Hot_dog.jpg" alt="food-item" />
+                        </div>
+
+                        <h4>Hotdog</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/juse.jpg" alt="food-item" />
+                        </div>
+
+                        <h4>Juice</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                    <div class="food-card">
+                        <div class="img-ctr-sqr">
+                            <img src="image/biryani.webp" alt="food-item" />
+                        </div>
+
+                        <h4>Biryani</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Laborum assumenda voluptates
+                        </p>
+                        <p><b>$20.00</b></p>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+                        <button class="btn-alt">Order Now</button>
+                    </div>
+                </div>
             </section>
             <section id="gallery">
                 <h1>Our <span>Gallery</span></h1>
+                <div class="gallery-grid">
+                    <img src="image/gallary_1.jpg" alt="gallery_item" />
+                    <img src="image/gallary_2.jpg" alt="gallery_item" />
+                    <img src="image/gallary_3.jpg" alt="gallery_item" />
+                    <img src="image/gallary_4.jpg" alt="gallery_item" />
+                    <img src="image/gallary_5.jpg" alt="gallery_item" />
+                    <img src="image/gallary_6.jpg" alt="gallery_item" />
+                </div>
+            </section>
+            <section id="review">
+                <h1>Customer <span> Review</span></h1>
+                <div class="review-grid">
+                    <div class="review-item-card">
+                        <img src="image/review_1.png" alt="reviewer_dp" />
+                        <h3>John Deo</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Ut ac lectus quis mauris fermentum ultrices.
+                            Sed ex ante, commodo ullamcorper viverra a,
+                            ultricies quis tellus. Pellentesque habitant morbi
+                            tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Aenean nulla risus, luctus efficitur
+                            felis et, porttitor vestibulum mauris. In sagittis
+                            nisl at ligula semper molestie. Fusce luctus, dolor
+                            nec blandit bibendum, dolor mi pharetra erat, a
+                            pharetra orci ligula vel justo. Nam dapibus ante sit
+                            amet pharetra varius. Morbi neque elit, tincidunt et
+                            convallis sed, posuere sed eros. Integer tincidunt
+                            dui leo, nec bibendum velit blandit tempor. Aenean
+                            mattis sit amet lorem nec cursus. Vivamus quis
+                            hendrerit nunc. Morbi sed orci felis!
+                        </p>
+                    </div>
+                    <div class="review-item-card">
+                        <img src="image/review_2.png" alt="reviewer_dp" />
+                        <h3>John Deo</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Ut ac lectus quis mauris fermentum ultrices.
+                            Sed ex ante, commodo ullamcorper viverra a,
+                            ultricies quis tellus. Pellentesque habitant morbi
+                            tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Aenean nulla risus, luctus efficitur
+                            felis et, porttitor vestibulum mauris. In sagittis
+                            nisl at ligula semper molestie. Fusce luctus, dolor
+                            nec blandit bibendum, dolor mi pharetra erat, a
+                            pharetra orci ligula vel justo. Nam dapibus ante sit
+                            amet pharetra varius. Morbi neque elit, tincidunt et
+                            convallis sed, posuere sed eros. Integer tincidunt
+                            dui leo, nec bibendum velit blandit tempor. Aenean
+                            mattis sit amet lorem nec cursus. Vivamus quis
+                            hendrerit nunc. Morbi sed orci felis!
+                        </p>
+                    </div>
+                    <div class="review-item-card">
+                        <img src="image/review_3.png" alt="reviewer_dp" />
+                        <h3>John Deo</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Ut ac lectus quis mauris fermentum ultrices.
+                            Sed ex ante, commodo ullamcorper viverra a,
+                            ultricies quis tellus. Pellentesque habitant morbi
+                            tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Aenean nulla risus, luctus efficitur
+                            felis et, porttitor vestibulum mauris. In sagittis
+                            nisl at ligula semper molestie. Fusce luctus, dolor
+                            nec blandit bibendum, dolor mi pharetra erat, a
+                            pharetra orci ligula vel justo. Nam dapibus ante sit
+                            amet pharetra varius. Morbi neque elit, tincidunt et
+                            convallis sed, posuere sed eros. Integer tincidunt
+                            dui leo, nec bibendum velit blandit tempor. Aenean
+                            mattis sit amet lorem nec cursus. Vivamus quis
+                            hendrerit nunc. Morbi sed orci felis!
+                        </p>
+                    </div>
+                    <div class="review-item-card">
+                        <img src="image/review_4.png" alt="reviewer_dp" />
+                        <h3>John Deo</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                        </div>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Ut ac lectus quis mauris fermentum ultrices.
+                            Sed ex ante, commodo ullamcorper viverra a,
+                            ultricies quis tellus. Pellentesque habitant morbi
+                            tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Aenean nulla risus, luctus efficitur
+                            felis et, porttitor vestibulum mauris. In sagittis
+                            nisl at ligula semper molestie. Fusce luctus, dolor
+                            nec blandit bibendum, dolor mi pharetra erat, a
+                            pharetra orci ligula vel justo. Nam dapibus ante sit
+                            amet pharetra varius. Morbi neque elit, tincidunt et
+                            convallis sed, posuere sed eros. Integer tincidunt
+                            dui leo, nec bibendum velit blandit tempor. Aenean
+                            mattis sit amet lorem nec cursus. Vivamus quis
+                            hendrerit nunc. Morbi sed orci felis!
+                        </p>
+                    </div>
+                </div>
             </section>
             <section id="order">
                 <h1><span>Order</span> Now</h1>
+                <div class="order-cnt">
+                    <img src="image/order_image.png" />
+                    <div class="order-form">
+                        <form action="" method="post">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="name">Name</label>
+                                        <br />
+                                        <input
+                                            name="name"
+                                            type="text"
+                                            placeholder="your name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <label for="email">Email</label>
+                                        <br />
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            placeholder="your email"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="number">Number</label>
+                                        <br />
+                                        <input
+                                            name="number"
+                                            type="text"
+                                            placeholder="your number"
+                                        />
+                                    </td>
+                                    <td>
+                                        <label for="count">How Much</label>
+                                        <br />
+                                        <input
+                                            name="count"
+                                            type="number"
+                                            min="0"
+                                            max="100"
+                                            placeholder="how many order"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="order">Your Order</label>
+                                        <br />
+                                        <input
+                                            name="order"
+                                            type="text"
+                                            placeholder="food name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <label for="address">Address</label>
+                                        <br />
+                                        <input
+                                            name="address"
+                                            type="text"
+                                            placeholder="your address"
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                            <button class="btn">Order Now</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="team">
                 <h1>Our <span>Team</span></h1>
+                <div class="chef-grid">
+                    <div class="chef-card">
+                        <img src="image/chef1.png" alt="chef-dp" />
+                    </div>
+                    <div class="chef-card">
+                        <img src="image/chef2.png" alt="chef-dp" />
+                    </div>
+                    <div class="chef-card">
+                        <img src="image/chef3.jpg" alt="chef-dp" />
+                    </div>
+                    <div class="chef-card">
+                        <img src="image/chef4.jpg" alt="chef-dp" />
+                    </div>
+                </div>
             </section>
             <footer>
                 <div class="footer-items">
                     <div class="location">
-                        <h3>Location</h3>
+                        <h1>Location</h1>
+                        <ul>
+                            <li>Sri Lanka</li>
+                            <li>USA</li>
+                            <li>India</li>
+                            <li>Japan</li>
+                            <li>Italy</li>
+                        </ul>
                     </div>
                     <div class="quick-link">
-                        <h3>Quick Link</h3>
+                        <h1>Quick Link</h1>
+                        <ul>
+                            <li><a href="#home">Home </a></li>
+                            <li><a href="#about">About </a></li>
+                            <li><a href="#menu">Menu </a></li>
+                            <li><a href="#gallery">Gallery </a></li>
+                            <li><a href="#review">Review</a></li>
+                            <li><a href="#order">Order </a></li>
+                        </ul>
                     </div>
                     <div class="contact">
-                        <h3>Contact</h3>
+                        <h1>Contact</h1>
+                        <ul>
+                            <li>Sri Lanka</li>
+                            <li>USA</li>
+                            <li>India</li>
+                            <li>Japan</li>
+                            <li>Italy</li>
+                        </ul>
                     </div>
                     <div class="service">
-                        <h3>Our Service</h3>
+                        <h1>Our Service</h1>
+                        <ul>
+                            <li>Fast Delivery</li>
+                            <li>Easy Payments</li>
+                            <li>24 x 7 Service</li>
+                        </ul>
                     </div>
                     <div class="follows">
-                        <h3>Follow</h3>
+                        <h1>Follow</h1>
+                        <ul class="social-icons">
+                            <li><i class="fa-brands fa-facebook"></i></li>
+                            <li><i class="fa-brands fa-twitter"></i></li>
+                            <li><i class="fa-brands fa-instagram"></i></li>
+                            <li><i class="fa-brands fa-linkedin"></i></li>
+                        </ul>
                     </div>
                 </div>
-                <p>Design by WT Master Code</p>
+                <p>Design <span>© by WT Master Code</span></p>
             </footer>
         </main>
     </body>
