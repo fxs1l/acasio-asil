@@ -1,5 +1,5 @@
-// const secretNumber = 6;
-const secretNumber = Math.floor(Math.random() * 10);
+const secretNumber = 6;
+// const secretNumber = Math.floor(Math.random() * 10);
 
 let attempts = 0;
 let guessedNumber;
