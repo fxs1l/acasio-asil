@@ -1,4 +1,5 @@
-let secretNumber = 6;
+// const secretNumber = 6;
+const secretNumber = Math.floor(Math.random() * 10);
 
 let attempts = 0;
 let guessedNumber;
@@ -16,7 +17,7 @@ do {
             "Congratulations! You guessed the correct number: ",
             secretNumber,
         );
+        console.log("It took you", attempts, "attempts.");
     }
     attempts++;
-    console.log("It took you", attempts, "attempts.");
 } while (guessedNumber != secretNumber);
