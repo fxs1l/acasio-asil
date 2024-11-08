@@ -8,6 +8,7 @@ console.log("Welcome to guess the number! ");
 
 do {
     guessedNumber = parseInt(prompt("What number am I thinking of?"));
+    attempts++;
     if (guessedNumber < secretNumber) {
         console.log("Too low! Try again.");
     } else if (guessedNumber > secretNumber) {
@@ -19,5 +20,4 @@ do {
         );
         console.log("It took you", attempts, "attempts.");
     }
-    attempts++;
 } while (guessedNumber != secretNumber);
