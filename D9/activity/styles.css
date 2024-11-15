@@ -1,0 +1,38 @@
+.container {
+  margin-top: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+  height: 500px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-subtitle {
+  color: #6c757d;
+}
+
+.card-text {
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.card-body {
+  overflow: hidden;
+  /* white-space: nowrap; */
+}
