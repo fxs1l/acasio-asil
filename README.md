@@ -1,5 +1,5 @@
 # Bootcamp Activities
-
+Github Pages: https://fxs1l.github.io/acasio-asil/
 ## D1
 - [Activity 1](D1/activity/activity1.html)
 - [Lesson 1](D1/lesson/lesson1.html)
