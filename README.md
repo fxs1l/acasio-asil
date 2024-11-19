@@ -52,3 +52,7 @@ Github Pages: https://fxs1l.github.io/acasio-asil/
 ## D10
 - [Activity 1](D10/activity/act1.html)
 - [Lesson](D10/lesson/index.html)
+
+## D11
+- [Activity 1](D11/activity/activity1.txt)
+- [Activity 2](D11/activity/activity2.txt)
