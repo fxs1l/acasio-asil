@@ -1,0 +1,140 @@
+// Step 3: Perform the following CRUD operations using MongoDB Compass:
+
+// a) Create Operation:
+// Insert at least three book documents with different fields such as title, author, genre, and publication year.
+db.Books.insertMany([
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    genre: "Fiction",
+    publication_year: 1988,
+  },
+  {
+    title: "The Da Vinci Code",
+    author: "Dan Brown",
+    genre: "Mystery",
+    publication_year: 2003,
+  },
+  {
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    genre: "Classics",
+    publication_year :  1925,
+  }
+])
+
+// Step 1 results
+{
+  _id: ObjectId('673c90d8436050c474e0f821'),
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  genre: 'Fiction',
+  publication_year: 1988
+}
+{
+  _id: ObjectId('673c90d8436050c474e0f822'),
+  title: 'The Da Vinci Code',
+  author: 'Dan Brown',
+  genre: 'Mystery',
+  publication_year: 2003
+}
+{
+  _id: ObjectId('673c90d8436050c474e0f823'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  genre: 'Classics',
+  publication_year: 1925
+}
+
+// b) Read Operation:
+// Retrieve all the book documents in the "Books" collection.
+db.Books.find()
+
+// results same as previous step
+
+// Retrieve a specific book document based on its title or author.
+db.Books.find({ title: "The Alchemist" })
+
+// result:
+{
+  _id: ObjectId('673c90d8436050c474e0f821'),
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  genre: 'Fiction',
+  publication_year: 1988
+}
+
+db.Books.find({ author: "Dan Brown" })
+
+// result:
+{
+  _id: ObjectId('673c90d8436050c474e0f822'),
+  title: 'The Da Vinci Code',
+  author: 'Dan Brown',
+  genre: 'Mystery',
+  publication_year: 2003
+}
+
+
+// c) Update Operation:
+// Update the genre of a book document.
+db.Books.updateOne(
+  { title: "The Alchemist" },
+  { $set: { genre: "Adventure" } }
+)
+
+// result:
+{
+  _id: ObjectId('673c90d8436050c474e0f821'),
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  genre: 'Adventure',
+  publication_year: 1988
+}
+
+
+// Update the publication year of a book document.
+db.Books.updateOne(
+  {title: "The Da Vinci Code"},
+  { $set: { publication_year: 2024 } }
+);
+
+// result:
+
+{
+  _id: ObjectId('673c90d8436050c474e0f822'),
+  title: 'The Da Vinci Code',
+  author: 'Dan Brown',
+  genre: 'Mystery',
+  publication_year: 2024
+}
+
+// d) Delete Operation:
+// Delete a book document based on its title or author.
+db.Books.deleteOne({ title: "The Great Gatsby" });
+// result:
+{
+  _id: ObjectId('673c90d8436050c474e0f821'),
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  genre: 'Fiction',
+  publication_year: 1988
+}
+{
+  _id: ObjectId('673c90d8436050c474e0f822'),
+  title: 'The Da Vinci Code',
+  author: 'Dan Brown',
+  genre: 'Mystery',
+  publication_year: 2024
+}
+
+db.Books.deleteOne({ author: "Dan Brown" });
+// result:
+{
+  _id: ObjectId('673c90d8436050c474e0f821'),
+  title: 'The Alchemist',
+  author: 'Paulo Coelho',
+  genre: 'Fiction',
+  publication_year: 1988
+}
+
