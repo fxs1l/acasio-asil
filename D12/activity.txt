@@ -1,0 +1,198 @@
+1. Retrieve all courses in the "Programming" category
+
+// Command: db.courses.aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "category",
+      foreignField: "_id",
+      as: "categoryObject"
+    }
+  },
+  {
+    $unwind: "$categoryObject"
+  },
+  {
+    $match: {
+      "categoryObject.name": "Programming"
+    }
+  }
+])
+
+Output:
+[
+  {
+    _id: ObjectId('673ddde5c0cf15006f867f25'),
+    title: 'Introduction to MongoDB',
+    description: 'Learn the basics of MongoDB.',
+    category: ObjectId('673ddaf187e3ab35970ba698'),
+    instructor: ObjectId('673ddb0487e3ab35970ba69d'),
+    students: [
+      ObjectId('673ddb3987e3ab35970ba6a3'),
+      ObjectId('673ddb3987e3ab35970ba6a4')
+    ],
+    reviews: [
+      {
+        rating: 5,
+        comment: 'Great course!',
+        student: ObjectId('673ddb3987e3ab35970ba6a3')
+      },
+      {
+        rating: 4,
+        comment: 'Very informative.',
+        student: ObjectId('673ddb3987e3ab35970ba6a4')
+      }
+    ],
+    categoryObject: { _id: ObjectId('673ddaf187e3ab35970ba698'), name: 'Programming' }
+  }
+]
+
+2. Retrieve all students enrolled in the course "Introduction to MongoDB"
+
+Command:
+
+db.courses.aggregate([
+  {
+    $match: { title: "Introduction to MongoDB" }
+  },
+  {
+    $lookup: {
+      from: "students",
+      localField: "students",
+      foreignField: "_id",
+      as: "enrolledStudents"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      enrolledStudents: 1
+    }
+  }
+])
+
+
+[
+  {
+    enrolledStudents: [
+      {
+        _id: ObjectId('673ddb3987e3ab35970ba6a3'),
+        name: 'Alice Johnson',
+        email: 'alice.j@example.com',
+        enrolledCourses: []
+      },
+      {
+        _id: ObjectId('673ddb3987e3ab35970ba6a4'),
+        name: 'Bob Brown',
+        email: 'bob.b@example.com',
+        enrolledCourses: []
+      }
+    ]
+  }
+]
+
+3. Retrieve course details, including category and instructor information, for all courses.
+db.courses.aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "category",
+      foreignField: "_id",
+      as: "categoryDetails"
+    }
+  },
+  {
+    $lookup: {
+      from: "instructors",
+      localField: "instructor",
+      foreignField: "_id",
+      as: "instructorDetails"
+    }
+  },
+  {
+    $unwind: "$categoryDetails"
+  },
+  {
+    $unwind: "$instructorDetails"
+  },
+  {
+    $project: {
+      title: 1,
+      description: 1,
+      category: "$categoryDetails",
+      instructor: "$instructorDetails",
+      students: 1,
+      reviews: 1,
+    }
+  }
+])
+
+[
+  {
+    _id: ObjectId('673ddde5c0cf15006f867f25'),
+    title: 'Introduction to MongoDB',
+    description: 'Learn the basics of MongoDB.',
+    students: [
+      ObjectId('673ddb3987e3ab35970ba6a3'),
+      ObjectId('673ddb3987e3ab35970ba6a4')
+    ],
+    reviews: [
+      {
+        rating: 5,
+        comment: 'Great course!',
+        student: ObjectId('673ddb3987e3ab35970ba6a3')
+      },
+      {
+        rating: 4,
+        comment: 'Very informative.',
+        student: ObjectId('673ddb3987e3ab35970ba6a4')
+      }
+    ],
+    category: { _id: ObjectId('673ddaf187e3ab35970ba698'), name: 'Programming' },
+    instructor: {
+      _id: ObjectId('673ddb0487e3ab35970ba69d'),
+      name: 'John Smith',
+      email: 'john.smith@example.com',
+      teachingCourses: [ ObjectId('673ddde5c0cf15006f867f25') ]
+    }
+  },
+  {
+    _id: ObjectId('673ddde5c0cf15006f867f26'),
+    title: 'Data Science with Python',
+    description: 'A comprehensive guide to data science using Python.',
+    students: [ ObjectId('673ddb3987e3ab35970ba6a5') ],
+    reviews: [
+      {
+        rating: 4,
+        comment: 'Good introduction.',
+        student: ObjectId('673ddb3987e3ab35970ba6a5')
+      }
+    ],
+    category: { _id: ObjectId('673ddaf187e3ab35970ba699'), name: 'Data Science' },
+    instructor: {
+      _id: ObjectId('673ddb0487e3ab35970ba69e'),
+      name: 'Jane Doe',
+      email: 'jane.doe@example.com',
+      teachingCourses: [ ObjectId('673ddde5c0cf15006f867f26') ]
+    }
+  }
+]
+4. Retrieve all reviews for the course "Data Science with Python," including the details of the students who wrote them.
+
+
+5. Find the average rating for each course.
+
+
+6. Retrieve all courses taught by the instructor "Jane Doe".
+
+
+7. Count the number of courses in each category.
+
+
+8. Find all students who have reviewed the course "Introduction to MongoDB".
+
+
+9. Retrieve the titles of all courses where the average rating is above 4.
+
+
+10. Retrieve all students who are enrolled in courses taught by "John Smith".
