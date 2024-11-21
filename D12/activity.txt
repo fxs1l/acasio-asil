@@ -92,6 +92,7 @@ db.courses.aggregate([
 ]
 
 3. Retrieve course details, including category and instructor information, for all courses.
+Command:
 db.courses.aggregate([
   {
     $lookup: {
@@ -126,7 +127,7 @@ db.courses.aggregate([
     }
   }
 ])
-
+Output:
 [
   {
     _id: ObjectId('673ddde5c0cf15006f867f25'),
@@ -178,21 +179,269 @@ db.courses.aggregate([
   }
 ]
 4. Retrieve all reviews for the course "Data Science with Python," including the details of the students who wrote them.
-
-
+Commmand:
+db.courses.aggregate([
+  {
+    $match: { title: "Data Science with Python" }
+  },
+  {
+    $unwind: "$reviews"
+  },
+  {
+    $lookup: {
+      from: "students",
+      localField: "reviews.student",
+      foreignField: "_id",
+      as: "studentDetails"
+    }
+  },
+  {
+    $unwind: "$studentDetails"
+  },
+  {
+    $project: {
+      _id: 0,
+      rating: "$reviews.rating",
+      comment: "$reviews.comment",
+      student: "$studentDetails"
+    }
+  }
+])
+Output:
+[
+  {
+    rating: 4,
+    comment: 'Good introduction.',
+    student: {
+      _id: ObjectId('673ddb3987e3ab35970ba6a5'),
+      name: 'Charlie White',
+      email: 'charlie.w@example.com',
+      enrolledCourses: [ ObjectId('673ddde5c0cf15006f867f26') ]
+    }
+  }
+]
 5. Find the average rating for each course.
 
+Commmand:
+db.courses.aggregate([
+  {
+    $unwind: "$reviews"
+  },
+  {
+    $group: {
+      _id: "$title",
+      averageRating: { $avg: "$reviews.rating" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      title: "$_id",
+      averageRating: 1
+    }
+  }
+])
+Output: [
+  { averageRating: 4.5, title: 'Introduction to MongoDB' },
+  { averageRating: 4, title: 'Data Science with Python' }
+]
 
 6. Retrieve all courses taught by the instructor "Jane Doe".
 
-
+Commmand: db.instructors.aggregate([
+  {
+    $match: { name: "Jane Doe" }
+  },
+  {
+    $unwind: "$teachingCourses"
+  },
+  {
+    $lookup: {
+      from: "courses",
+      localField: "teachingCourses",
+      foreignField: "_id",
+      as: "courseDetails"
+    }
+  },
+  {
+    $unwind: "$courseDetails"
+  },
+  {
+    $project: {
+      courseDetails: 1
+    }
+  }
+])
+Output:
+[
+  {
+    _id: ObjectId('673ddb0487e3ab35970ba69e'),
+    courseDetails: {
+      _id: ObjectId('673ddde5c0cf15006f867f26'),
+      title: 'Data Science with Python',
+      description: 'A comprehensive guide to data science using Python.',
+      category: ObjectId('673ddaf187e3ab35970ba699'),
+      instructor: ObjectId('673ddb0487e3ab35970ba69e'),
+      students: [ ObjectId('673ddb3987e3ab35970ba6a5') ],
+      reviews: [
+        {
+          rating: 4,
+          comment: 'Good introduction.',
+          student: ObjectId('673ddb3987e3ab35970ba6a5')
+        }
+      ]
+    }
+  }
+]
 7. Count the number of courses in each category.
-
-
+Commmand:db.categories.aggregate([
+  {
+    $lookup: {
+      from: "courses",
+      localField: "_id",
+      foreignField: "category",
+      as: "courses"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      category: "$name",
+      courseCount: { $size: "$courses" }
+    }
+  }
+])
+Output: [
+  { category: 'Programming', courseCount: 1 },
+  { category: 'Data Science', courseCount: 1 },
+  { category: 'Design', courseCount: 0 }
+]
 8. Find all students who have reviewed the course "Introduction to MongoDB".
 
+Commmand: db.courses.aggregate([
+  {
+    $match: { title: "Introduction to MongoDB" }
+  },
+  {
+    $unwind: "$reviews"
+  },
+  {
+    $lookup: {
+      from: "students",
+      localField: "reviews.student",
+      foreignField: "_id",
+      as: "studentDetails"
+    }
+  },
+  {
+    $unwind: "$studentDetails"
+  },
+  {
+    $group: {
+      _id: "$studentDetails._id",
+      name: { $first: "$studentDetails.name" },
+      email: { $first: "$studentDetails.email" }
+    }
+  }
+])
+Output: [
+  {
+    _id: ObjectId('673ddb3987e3ab35970ba6a3'),
+    name: 'Alice Johnson',
+    email: 'alice.j@example.com'
+  },
+  {
+    _id: ObjectId('673ddb3987e3ab35970ba6a4'),
+    name: 'Bob Brown',
+    email: 'bob.b@example.com'
+  }
+]
 
 9. Retrieve the titles of all courses where the average rating is above 4.
 
+Commmand: db.courses.aggregate([
+  {
+    $unwind: "$reviews"
+  },
+  {
+    $group: {
+      _id: "$title",
+      averageRating: { $avg: "$reviews.rating" }
+    }
+  },
+  {
+    $match: {
+      averageRating: { $gt: 4 }
+    }
+  },
+  {
+    $project: {
+      title: "$_id",
+      averageRating: 1
+    }
+  }
+])
+Output:
+[
+  {
+    _id: 'Introduction to MongoDB',
+    averageRating: 4.5,
+    title: 'Introduction to MongoDB'
+  }
+]
 
 10. Retrieve all students who are enrolled in courses taught by "John Smith".
+
+Commmand: db.instructors.aggregate([
+  {
+    $match: { name: "John Smith" }
+  },
+  {
+    $lookup: {
+      from: "courses",
+      localField: "_id",
+      foreignField: "instructor",
+      as: "coursesTaught"
+    }
+  },
+  {
+    $unwind: "$coursesTaught"
+  },
+  {
+    $lookup: {
+      from: "students",
+      localField: "coursesTaught._id",
+      foreignField: "enrolledCourses",
+      as: "enrolledStudents"
+    }
+  },
+  {
+    $unwind: "$enrolledStudents"
+  },
+  {
+    $group: {
+      _id: "$enrolledStudents._id",
+      name: { $first: "$enrolledStudents.name" },
+      email: { $first: "$enrolledStudents.email" }
+    }
+  },
+  {
+    $project: {
+      name: 1,
+      email: 1
+    }
+  }
+])
+Output:
+[
+  {
+    _id: ObjectId('673ddb3987e3ab35970ba6a3'),
+    name: 'Alice Johnson',
+    email: 'alice.j@example.com'
+  },
+  {
+    _id: ObjectId('673ddb3987e3ab35970ba6a4'),
+    name: 'Bob Brown',
+    email: 'bob.b@example.com'
+  }
+]
