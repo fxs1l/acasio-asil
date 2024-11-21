@@ -1,0 +1,4 @@
+.nvmrc
+.env
+
+node_modules/
